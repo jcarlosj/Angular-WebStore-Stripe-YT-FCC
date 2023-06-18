@@ -1,1 +1,74 @@
-<p>header works!</p>
+<mat-toolbar class="toolbar">
+  <a routerLink="home">
+    <span>Store</span>
+  </a>
+  <span class="example-spacer"></span>
+
+  <button mat-button
+    class="shopping-cart-icon"
+    aria-label="Example icon-button with heart icon"
+    [matMenuTriggerFor]="menu"
+  >
+    <mat-icon
+      matBadge="4"
+      matBadgeOverlap="false"
+      matBadgeColor="warn"
+      class="demo-section"
+    >shopping_cart</mat-icon>
+  </button>
+
+  <mat-menu #menu="matMenu">
+    <div class="shopping-cart-menu">
+
+      <div class="shopping-cart-info">
+        <span>1 items</span>
+        <a routerLink="card">
+          <mat-icon
+            matBadgeOverlap="false"
+            matBadgeColor="warn"
+            class="demo-section"
+          >shopping_basket</mat-icon>
+        </a>
+      </div>
+
+      <div class="shopping-cart-item">
+        <span class="product-detail">
+          <span class="product-name">keyboard</span> x
+          <span class="product-quantity">1</span>
+        </span>
+        <span class="product-price">{{ '150' | currency }}</span>
+      </div>
+
+      <div class="shopping-cart-item">
+        <span class="product-detail">
+          <span class="product-name">keyboard</span> x
+          <span class="product-quantity">1</span>
+        </span>
+        <span class="product-price">{{ '150' | currency }}</span>
+      </div>
+
+      <div class="shopping-cart-total">
+        <span>Total</span>
+        <span class="total-price">{{ '300' | currency }}</span>
+      </div>
+
+      <div class="shopping-cart-total">
+        <mat-icon
+          matBadgeOverlap="false"
+          matBadgeColor="warn"
+          class="demo-section"
+        >remove_shopping_cart</mat-icon>
+        <mat-icon
+          matBadgeOverlap="false"
+          matBadgeColor="warn"
+          class="demo-section"
+        >shopping_cart_checkout</mat-icon>
+      </div>
+
+
+    </div>
+  </mat-menu>
+
+
+
+</mat-toolbar>
