@@ -1,0 +1,10 @@
+.card-content {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.card-right-content {
+  display: flex;
+  justify-content: initial;
+}
