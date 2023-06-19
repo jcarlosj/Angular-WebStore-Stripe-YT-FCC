@@ -1,0 +1,11 @@
+.drawer-container {
+  min-height: 100%;
+  max-width: 80rem; /* 1280px */
+  margin: 0 auto;
+  border-left: 1px solid rgba(0,0,0,.12);
+  border-right: 1px solid rgba(0,0,0,.12);
+}
+
+.drawer, .drawer-content {
+  padding: 1.5rem; /* 24px */
+}

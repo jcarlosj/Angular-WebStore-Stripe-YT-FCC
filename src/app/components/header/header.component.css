@@ -1,6 +1,8 @@
 .toolbar {
   display: flex;
   justify-content: space-between;
+  margin: 0 auto;
+  max-width: 80rem; /* 1280px */
 }
 
 /** shopping-cart-menu */
