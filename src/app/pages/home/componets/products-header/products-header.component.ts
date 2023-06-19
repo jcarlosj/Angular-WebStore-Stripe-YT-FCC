@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-products-header',
@@ -6,6 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./products-header.component.css']
 })
 export class ProductsHeaderComponent {
+  @Output() columnsToShow = new EventEmitter<number>();
+
   order = 'desc';
   itemsShowed = 12;
 
@@ -13,8 +15,12 @@ export class ProductsHeaderComponent {
     this.order = newOrder;
   }
 
-  onItemsUpdated ( numberItems: number ) {
+  onItemsUpdated ( numberItems: number ) : void {
     this.itemsShowed = numberItems;
+  }
+
+  onColumnsUpdated ( numberColumns: number ) : void {
+    this.columnsToShow.emit( numberColumns );
   }
 
 }

@@ -8,3 +8,12 @@
   display: flex;
   justify-content: initial;
 }
+
+.show-by-columns .mdc-button {
+  min-width: 36px;
+}
+
+.show-by-columns .mat-mdc-button > .mat-icon  {
+  /* border: 1px solid orange; */
+  margin: 0 auto;
+}
