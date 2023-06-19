@@ -7,7 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './pages/home/home.component';
-import { ProductsHeaderComponent } from './pages/home/componets/products-header/products-header.component';
+import { ProductsHeaderComponent } from './pages/home/components/products-header/products-header.component';
 
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatButtonModule } from '@angular/material/button';
