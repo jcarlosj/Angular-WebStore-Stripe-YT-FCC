@@ -6,7 +6,10 @@
     mode="side" opened
     class="drawer"
   >
-    <app-filters></app-filters>
+    <app-filters
+      (selectedCategory)="onShowCategory( $event )"
+    ></app-filters>
+    {{ 'Category to show: ' + showCategory }}
   </mat-drawer>
   <mat-drawer-content
     class="drawer-content"

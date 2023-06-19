@@ -1,1 +1,24 @@
-<p>filters works!</p>
+<mat-accordion>
+  <mat-expansion-panel>
+
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Categories
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <mat-selection-list
+      [multiple]="false"
+      #category
+      hideSingleSelectionIndicator
+    >
+      <mat-list-option
+        *ngFor="let category of categories" [value]="category"
+        (click)="onShowCategory( category )"
+      >
+        <span>{{ category }}</span>
+      </mat-list-option>
+    </mat-selection-list>
+
+  </mat-expansion-panel>
+</mat-accordion>

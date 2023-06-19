@@ -7,8 +7,13 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
   columnsToShow = 3;
+  showCategory: string | undefined;
 
   onColumnsToShow( numberCols: number ) : void {
     this.columnsToShow = numberCols;
+  }
+
+  onShowCategory( newCategory: string ) : void {
+    this.showCategory = newCategory;
   }
 }
