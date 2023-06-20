@@ -11,5 +11,6 @@
 }
 
 .grid-tile {
-  background-color: aquamarine;
+  /* background-color: aquamarine; */
+  border: 1px dotted blue;
 }

@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 
 const ROWS_HEIGHT : { [id: number] : number } = {
-  1: 400,
-  3: 335,
-  4: 350
+  1: 370,   // 1: 400,
+  3: 370,   // 3: 335,
+  4: 370    // 4: 350
 };
 
 @Component({
