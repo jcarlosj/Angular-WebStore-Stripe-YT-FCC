@@ -9,3 +9,7 @@
 .drawer, .drawer-content {
   padding: 1.5rem; /* 24px */
 }
+
+.grid-tile {
+  background-color: aquamarine;
+}

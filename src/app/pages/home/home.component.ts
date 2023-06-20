@@ -1,5 +1,11 @@
 import { Component } from '@angular/core';
 
+const ROWS_HEIGHT : { [id: number] : number } = {
+  1: 400,
+  3: 335,
+  4: 350
+};
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -7,10 +13,12 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
   columnsToShow = 3;
+  rowHeight = ROWS_HEIGHT[ this.columnsToShow ];
   showCategory: string | undefined;
 
   onColumnsToShow( numberCols: number ) : void {
     this.columnsToShow = numberCols;
+    this.rowHeight = ROWS_HEIGHT[ this.columnsToShow ];
   }
 
   onShowCategory( newCategory: string ) : void {
