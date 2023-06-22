@@ -1,31 +1,53 @@
-<mat-card class="card card__product">
+<mat-card [ngClass]="{ 'card card__full-width': ! fullWidthMode }">
 
-  <img mat-card-image
-    class="cart__image"
-    src="https://placehold.co/150x200"
-    alt="Photo: 150x200"
+  <div
+    class="card__content"
+    [ngClass]="{ 'card__content--full-width': fullWidthMode }"
   >
 
-  <div class="cart-cart__detail">
+    <img mat-card-image
+      class="card__image"
+      [ngClass]="{
+        'card__image--full-width': ! fullWidthMode,
+        'card__image--non-full-width': fullWidthMode,
+      }"
+      src="https://placehold.co/150x200"
+      alt="Photo: 150x200"
+    >
 
-    <mat-card-header class="card__header">
-      <mat-card-title>Shoes</mat-card-title>
-      <mat-card-subtitle class="cart__sub-title">Snikers</mat-card-subtitle>
-    </mat-card-header>
+    <div
+      class="cart-cart__detail"
+      [ngClass]="{ 'cart-cart__detail--full-width' : fullWidthMode }"
+    >
+      <div class="card__header-content">
 
-    <mat-card-content>
-      <p>Description product</p>
-      <mat-divider></mat-divider>
-    </mat-card-content>
+        <mat-card-header class="card__header">
+          <mat-card-title>Shoes</mat-card-title>
+          <mat-card-subtitle class="cart__sub-title">Snikers</mat-card-subtitle>
+        </mat-card-header>
 
-    <mat-card-actions class="card__actions">
-      <span mat-button class="product-price">{{ '250' | currency }}</span>
-      <button mat-button class="card__button">
-        <mat-icon class="icon-add-shopping-cart">add_shopping_cart</mat-icon>
-      </button>
-    </mat-card-actions>
+        <mat-card-content>
+          <p *ngIf="fullWidthMode">Description product</p>
+          <mat-divider></mat-divider>
+        </mat-card-content>
 
-    <mat-card-footer></mat-card-footer>
+      </div>
+
+      <div class="card__actions-footer">
+
+        <mat-card-actions class="card__actions">
+          <span mat-button class="product-price">{{ '250' | currency }}</span>
+          <button mat-button class="card__button">
+            <mat-icon class="icon-add-shopping-cart">add_shopping_cart</mat-icon>
+          </button>
+        </mat-card-actions>
+
+        <mat-card-footer></mat-card-footer>
+
+      </div>
+
+
+    </div>
 
   </div>
 

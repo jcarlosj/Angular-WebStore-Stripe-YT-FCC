@@ -14,3 +14,7 @@
   /* background-color: aquamarine; */
   border: 1px dotted blue;
 }
+
+.product-box {
+  width: 100%;
+}

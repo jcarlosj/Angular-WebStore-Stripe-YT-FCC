@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-product-box',
@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./product-box.component.css']
 })
 export class ProductBoxComponent {
+  @Input() fullWidthMode = false;
 
 }
