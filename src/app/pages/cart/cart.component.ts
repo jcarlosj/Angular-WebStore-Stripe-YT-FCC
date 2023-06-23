@@ -22,7 +22,8 @@ export class CartComponent implements OnInit {
     'name',
     'price',
     'quantity',
-    'total'
+    'total',
+    'action'
 ];    // Si alguna de las columnas no esta aqui definida no se nuestra aunque este definida en el FrontEnd dentro de su <ng-container>
 
   ngOnInit() : void {
