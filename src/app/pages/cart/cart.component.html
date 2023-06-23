@@ -1,1 +1,69 @@
-<p>cart works!</p>
+<mat-card *ngIf="cart.items.length">
+
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <!-- Las celdas reales de la tabla -->
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="product">
+      <th mat-header-cell *matHeaderCellDef>Product</th>
+        <td mat-cell *matCellDef="let element">
+          <img src="{{ element.urlProduct }}" class="" alt="product" />
+        </td>
+        <td mat-footer-cell *matFooterCellDef>
+          <button mat-raised-button
+            routerLink="/home"
+          >Continue shopping!</button>
+        </td>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Name</th>
+        <td mat-cell *matCellDef="let element">
+          <p>{{ element.name }}</p>
+        </td>
+        <td mat-footer-cell *matFooterCellDef></td>
+    </ng-container>
+
+    <ng-container matColumnDef="price">
+      <th mat-header-cell *matHeaderCellDef>Price</th>
+        <td mat-cell *matCellDef="let element">
+          <p>{{ element.price | currency }}</p>
+        </td>
+        <td mat-footer-cell *matFooterCellDef></td>
+    </ng-container>
+
+    <ng-container matColumnDef="quantity">
+      <th mat-header-cell *matHeaderCellDef>Quantity</th>
+        <td mat-cell *matCellDef="let element">
+          <p>{{ element.quantity }}</p>
+        </td>
+        <td mat-footer-cell *matFooterCellDef></td>
+    </ng-container>
+
+    <ng-container matColumnDef="total">
+      <th mat-header-cell *matHeaderCellDef>Total</th>
+        <td mat-cell *matCellDef="let element">
+          <p>Pending... </p>
+        </td>
+        <td mat-footer-cell *matFooterCellDef></td>
+    </ng-container>
+
+
+    <!-- Marcadores de posicion donde vamos a desplegar los datos de nuestra muestra en nuestra tabla -->
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
+
+  </table>
+
+</mat-card>
+<mat-card *ngIf="! cart.items.length">
+
+  <p>Your cart is empty
+    <button mat-raised-button
+      routerLink="/home"
+    >Start shopping!</button>
+  </p>
+
+</mat-card>
