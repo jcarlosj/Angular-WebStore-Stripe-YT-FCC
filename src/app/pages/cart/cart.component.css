@@ -1,0 +1,24 @@
+.card-table__product {
+  max-width: 80rem; /* 1280px */
+  margin: 0 auto;
+}
+
+.product__name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 20rem; /* 320px */
+}
+
+.total-value {
+  font-weight: bold;
+  display: block;
+  padding: 1.25rem 0; /* 20px */
+}
+
+.mat-mdc-raised-button.btn-clear-all,
+.mdc-fab--mini {
+  float: right;
+  background-color: #f44336;
+  color: white;
+}
