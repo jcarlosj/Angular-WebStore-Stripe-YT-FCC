@@ -16,7 +16,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatListModule } from '@angular/material/list';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatTableModule } from '@angular/material/table';
-
+import { MatSnackBarModule} from '@angular/material/snack-bar';
 
 import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -24,6 +24,8 @@ import { ProductsHeaderComponent } from './pages/home/components/products-header
 import { FiltersComponent } from './pages/home/components/filters/filters.component';
 import { ProductBoxComponent } from './pages/home/components/product-box/product-box.component';
 import { CartComponent } from './pages/cart/cart.component';
+
+import { CartService } from './services/cart.service';
 
 
 @NgModule({
@@ -50,9 +52,12 @@ import { CartComponent } from './pages/cart/cart.component';
     MatExpansionModule,
     MatListModule,
     MatGridListModule,
-    MatTableModule
+    MatTableModule,
+    MatSnackBarModule
   ],
-  providers: [],
+  providers: [
+    CartService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
