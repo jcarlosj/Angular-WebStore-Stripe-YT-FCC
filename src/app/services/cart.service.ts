@@ -36,4 +36,22 @@ export class CartService {
     console.log( this.cart.value );
 
   }
+
+  // Itera cada uno de los items de producto para calcular el valor total de los productos en el carrito
+  getTotal( items: Array<CartItem> ) : number {
+    return items.map( item => item.price * item.quantity )
+                .reduce( ( prev, curr ) => prev + curr, 0 );
+  }
+
+  clearCart() : void {
+    this.cart.next({
+      items: []
+    });
+
+    this._snackbar.open( 'Cart is cleared', 'Ok', {
+      duration: 3000
+    });
+  }
+
+
 }
