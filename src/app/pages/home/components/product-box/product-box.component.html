@@ -37,7 +37,10 @@
 
         <mat-card-actions class="card__actions">
           <span mat-button class="product-price">{{ '250' | currency }}</span>
-          <button mat-button class="card__button">
+          <button mat-button
+            class="card__button"
+            (click)="onAddToCart()"
+          >
             <mat-icon class="icon-add-shopping-cart">add_shopping_cart</mat-icon>
           </button>
         </mat-card-actions>

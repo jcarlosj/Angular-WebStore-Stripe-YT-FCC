@@ -24,63 +24,11 @@
       [rowHeight]="rowHeight"
     >
       <mat-grid-tile class="grid-tile">
+        <!-- (addToCart)="onAddToCart( $event )" Establecemos la conexion entre el evento y el componente padre -->
         <app-product-box
-          class="product-box" [fullWidthMode]="columnsToShow === 1"
-        ></app-product-box>
-      </mat-grid-tile>
-      <mat-grid-tile class="grid-tile">
-        <app-product-box
-          class="product-box" [fullWidthMode]="columnsToShow === 1"
-        ></app-product-box>
-      </mat-grid-tile>
-      <mat-grid-tile class="grid-tile">
-        <app-product-box
-          class="product-box" [fullWidthMode]="columnsToShow === 1"
-        ></app-product-box>
-      </mat-grid-tile>
-      <mat-grid-tile class="grid-tile">
-        <app-product-box
-          class="product-box" [fullWidthMode]="columnsToShow === 1"
-        ></app-product-box>
-      </mat-grid-tile>
-      <mat-grid-tile class="grid-tile">
-        <app-product-box
-          class="product-box" [fullWidthMode]="columnsToShow === 1"
-        ></app-product-box>
-      </mat-grid-tile>
-      <mat-grid-tile class="grid-tile">
-        <app-product-box
-          class="product-box" [fullWidthMode]="columnsToShow === 1"
-        ></app-product-box>
-      </mat-grid-tile>
-      <mat-grid-tile class="grid-tile">
-        <app-product-box
-          class="product-box" [fullWidthMode]="columnsToShow === 1"
-        ></app-product-box>
-      </mat-grid-tile>
-      <mat-grid-tile class="grid-tile">
-        <app-product-box
-          class="product-box" [fullWidthMode]="columnsToShow === 1"
-        ></app-product-box>
-      </mat-grid-tile>
-      <mat-grid-tile class="grid-tile">
-        <app-product-box
-          class="product-box" [fullWidthMode]="columnsToShow === 1"
-        ></app-product-box>
-      </mat-grid-tile>
-      <mat-grid-tile class="grid-tile">
-        <app-product-box
-          class="product-box" [fullWidthMode]="columnsToShow === 1"
-        ></app-product-box>
-      </mat-grid-tile>
-      <mat-grid-tile class="grid-tile">
-        <app-product-box
-          class="product-box" [fullWidthMode]="columnsToShow === 1"
-        ></app-product-box>
-      </mat-grid-tile>
-      <mat-grid-tile class="grid-tile">
-        <app-product-box
-          class="product-box" [fullWidthMode]="columnsToShow === 1"
+          (addToCart)="onAddToCart( $event )"
+          class="product-box"
+          [fullWidthMode]="columnsToShow === 1"
         ></app-product-box>
       </mat-grid-tile>
     </mat-grid-list>
