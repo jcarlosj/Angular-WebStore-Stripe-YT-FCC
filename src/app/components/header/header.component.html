@@ -10,7 +10,8 @@
     [matMenuTriggerFor]="menu"
   >
     <mat-icon
-      matBadge="4"
+      [matBadge]="itemsQuantity"
+      [matBadgeHidden]="! itemsQuantity"
       matBadgeOverlap="false"
       matBadgeColor="warn"
       class="demo-section"
@@ -21,7 +22,7 @@
     <div class="shopping-cart-menu">
 
       <div class="shopping-cart-info">
-        <span>1 items</span>
+        <span>{{ itemsQuantity }} items</span>
         <a routerLink="/cart">
           View cart
           <!-- <mat-icon
@@ -32,33 +33,39 @@
         </a>
       </div>
 
-      <div class="shopping-cart-item">
-        <span class="product-detail">
-          <span class="product-name">keyboard</span> x
-          <span class="product-quantity">1</span>
-        </span>
-        <span class="product-price">{{ '150' | currency }}</span>
-      </div>
+      <div
+        class="shopping-cart-items"
+        *ngIf="cart.items.length">
 
-      <div class="shopping-cart-item">
-        <span class="product-detail">
-          <span class="product-name">keyboard</span> x
-          <span class="product-quantity">1</span>
-        </span>
-        <span class="product-price">{{ '150' | currency }}</span>
+        <div
+          class="shopping-cart-item"
+          *ngFor="let item of cart.items"
+        >
+          <span class="product-detail">
+            <span class="product-name">{{ item.name }}</span> x
+            <span class="product-quantity">{{ item.quantity }}</span>
+          </span>
+          <span class="product-price">{{ item.price | currency }}</span>
+        </div>
+
       </div>
 
       <div class="shopping-cart-total">
         <span>Total</span>
-        <span class="total-price">{{ '300' | currency }}</span>
+        <span class="total-price">{{ getTotal( cart.items )  | currency }}</span>
       </div>
 
       <div class="shopping-cart-total">
-        <mat-icon
-          matBadgeOverlap="false"
-          matBadgeColor="warn"
-          class="demo-section"
-        >remove_shopping_cart</mat-icon>
+        <button
+          (click)="onClearCart()"
+        >
+          <mat-icon
+            matBadgeOverlap="false"
+            matBadgeColor="warn"
+            class="demo-section"
+          >remove_shopping_cart</mat-icon>
+        </button>
+
         <mat-icon
           matBadgeOverlap="false"
           matBadgeColor="warn"
