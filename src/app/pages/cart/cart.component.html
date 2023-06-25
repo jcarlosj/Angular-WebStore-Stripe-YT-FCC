@@ -10,58 +10,58 @@
     <!-- Product Image Column -->
     <ng-container matColumnDef="product">
       <th mat-header-cell *matHeaderCellDef>Product</th>
-        <td mat-cell *matCellDef="let element"
-          class="product__name"
-        >
-          <img src="{{ element.urlProduct }}" class="" alt="product" />
-        </td>
-        <td mat-footer-cell *matFooterCellDef>
-          <button mat-raised-button
-            routerLink="/home"
-          >Continue shopping!</button>
-        </td>
+      <td mat-cell *matCellDef="let element"
+        class="product__name"
+      >
+        <img src="{{ element.urlProduct }}" class="" alt="product" />
+      </td>
+      <td mat-footer-cell *matFooterCellDef>
+        <button mat-raised-button
+          routerLink="/home"
+        >Continue shopping!</button>
+      </td>
     </ng-container>
 
     <!-- Product Name Column -->
     <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef>Name</th>
-        <td mat-cell *matCellDef="let element"
-          class="product__name"
-        >
-          <p>{{ element.name }}</p>
-        </td>
-        <td mat-footer-cell *matFooterCellDef></td>
+      <td mat-cell *matCellDef="let element"
+        class="product__name"
+      >
+        <p>{{ element.name }}</p>
+      </td>
+      <td mat-footer-cell *matFooterCellDef></td>
     </ng-container>
 
       <!-- Product Price Column -->
     <ng-container matColumnDef="price">
       <th mat-header-cell *matHeaderCellDef>Price</th>
-        <td mat-cell *matCellDef="let element"
-          class="product__name"
-        >
-          <p>{{ element.price | currency }}</p>
-        </td>
-        <td mat-footer-cell *matFooterCellDef></td>
+      <td mat-cell *matCellDef="let element"
+        class="product__name"
+      >
+        <p>{{ element.price | currency }}</p>
+      </td>
+      <td mat-footer-cell *matFooterCellDef></td>
     </ng-container>
 
     <!-- Product Quantity Column -->
     <ng-container matColumnDef="quantity">
       <th mat-header-cell *matHeaderCellDef>Quantity</th>
-          <td mat-cell *matCellDef="let element"
-            class="product__name"
-          >
-          <p>{{ element.quantity }}</p>
-        </td>
-        <td mat-footer-cell *matFooterCellDef></td>
+      <td mat-cell *matCellDef="let element"
+        class="product__name"
+      >
+      <p>{{ element.quantity }}</p>
+      </td>
+      <td mat-footer-cell *matFooterCellDef></td>
     </ng-container>
 
     <!-- Product Total Value Column -->
     <ng-container matColumnDef="total">
       <th mat-header-cell *matHeaderCellDef>Total</th>
-          <td mat-cell *matCellDef="let element"
-            class="product__name"
-          >
-          <p>{{ element.price * element.quantity | currency }}</p>
+        <td mat-cell *matCellDef="let element"
+          class="product__name"
+        >
+        <p>{{ element.price * element.quantity | currency }}</p>
         </td>
         <td mat-footer-cell *matFooterCellDef>
           <span class="total-value">{{ getTotal( cart.items ) | currency }}</span>
@@ -73,14 +73,16 @@
       <th mat-header-cell *matHeaderCellDef>
         <button mat-raised-button class="btn-clear-all">Clear all</button>
       </th>
-          <td mat-cell *matCellDef="let element"
-            class="product__name"
-          >
-          <button mat-mini-fab>
-            <mat-icon>close</mat-icon>
-          </button>
-        </td>
-        <td mat-footer-cell *matFooterCellDef></td>
+      <td mat-cell *matCellDef="let element"
+        class="product__name"
+      >
+        <button mat-mini-fab>
+          <mat-icon>close</mat-icon>
+        </button>
+      </td>
+      <td mat-footer-cell *matFooterCellDef>
+        <button mat-raised-button class="btn-checkout">Proceed to checkout</button>
+      </td>
     </ng-container>
 
 

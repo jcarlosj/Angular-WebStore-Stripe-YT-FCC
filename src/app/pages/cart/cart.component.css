@@ -22,3 +22,9 @@
   background-color: #f44336;
   color: white;
 }
+
+.mat-mdc-raised-button.btn-checkout {
+  float: right;
+  background-color: #673ab7;
+  color: white;
+}
