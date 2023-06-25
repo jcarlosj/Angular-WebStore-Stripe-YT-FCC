@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Cart, CartItem } from '../../models/cart.model';
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-cart',
@@ -26,16 +27,17 @@ export class CartComponent implements OnInit {
     'quantity',
     'total',
     'action'
-];    // Si alguna de las columnas no esta aqui definida no se nuestra aunque este definida en el FrontEnd dentro de su <ng-container>
+  ];    // Si alguna de las columnas no esta aqui definida no se nuestra aunque este definida en el FrontEnd dentro de su <ng-container>
+
+  constructor( private cartService: CartService ) {}
 
   ngOnInit() : void {
     this.dataSource = this.cart.items;    // Inicializa los datos a desplegar en la tabla en el FrontEnd
   }
 
-  // Itera cada uno de los items de producto para calcular el valor total de los productos en el carrito
+  // Itera cada uno de los items de producto para calcular el valor total de los productos en el carrito usando el service
   getTotal( items: Array<CartItem> ) : number {
-    return items.map( item => item.price * item.quantity )
-                .reduce( ( prev, curr ) => prev + curr, 0 );
+    return this.cartService.getTotal( items );
   }
 
 }
