@@ -52,7 +52,9 @@
       >
 
         <div class="content-quantity">
-          <button mat-icon-button>
+          <button mat-icon-button
+            (click)="onRemoveQuantity( element )"
+          >
             <mat-icon>remove</mat-icon>
           </button>
 

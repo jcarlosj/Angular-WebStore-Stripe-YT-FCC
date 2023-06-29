@@ -16,7 +16,7 @@ export class CartService {
   constructor( private _snackbar: MatSnackBar ) { }
 
   addToCart( newItem: CartItem ) : void {
-    const items = [ ...this.cart.value.items ];   // Obtenemos el valor agregado a tra
+    const items = [ ...this.cart.value.items ];   // Obtenemos el valor agregado a traves del gestor de estado del componente
 
     const itemInCart = items.find( item => item.id === newItem.id );
 
@@ -37,6 +37,38 @@ export class CartService {
 
   }
 
+  removeQuantity( item: CartItem ) : void {
+    let itemForRemoval : CartItem | undefined;
+
+    let filteredItems : Array<CartItem> = this.cart.value.items.map( ( _item: CartItem ) => {
+
+      // Verificamos que el id del producto a eliminar coincida con algun item dentro de la lista del carrito de compras
+      if( _item.id === item.id ) {
+        _item.quantity--;             // Resta la cantidad de un producto dentro de la lista del carrito de compras
+
+        // Verificamos si la cantidad es cero para eliminar el producto dentro de la lista del carrito de compras
+        if( _item.quantity === 0 ) {
+          itemForRemoval = _item;     // Elimina el producto si su cantidad llega a CERO
+        }
+
+      }
+
+      return _item;
+    });
+
+    // Verifica si hay un producto para eliminar
+    if( itemForRemoval ) {
+      filteredItems = this.removeFromCart( itemForRemoval, false );
+    }
+
+    this.cart.next({ items: filteredItems });   // Actualiza el estado
+
+    this._snackbar.open( '1 item removed from cart', 'Ok', {
+      duration: 3000
+    });
+
+  }
+
   // Itera cada uno de los items de producto para calcular el valor total de los productos en el carrito
   getTotal( items: Array<CartItem> ) : number {
     return items.map( item => item.price * item.quantity )
@@ -54,17 +86,21 @@ export class CartService {
   }
 
   // Itera cada uno de los items de producto dentro del estado del componente y elimina el item solicitado
-  removeFromCart( item: CartItem ) : void {
-    // TODO: Elimina del carrito un producto, sin importar la cantidad solicitada del mismo ¿Debería restar la cantidad del producto hasta llegar a cero y eliminarlo completamente del carrito?
+  removeFromCart( item: CartItem, update = true ) : Array<CartItem> {
+
     const filteredItems = this.cart.value.items.filter( ( _item: CartItem ) => {
       return _item.id !== item.id;      // Filtramos todos los items que no tengan el id igual
     });
 
-    this.cart.next({ items: filteredItems });   // Actualiza el estado
+    if( update ) {
+      this.cart.next({ items: filteredItems });   // Actualiza el estado
 
-    this._snackbar.open( '1 item removed from cart', 'Ok', {
-      duration: 3000
-    });
+      this._snackbar.open( '1 item removed from cart', 'Ok', {
+        duration: 3000
+      });
+    }
+
+    return filteredItems;
   }
 
 }
