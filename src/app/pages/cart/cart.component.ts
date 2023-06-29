@@ -32,12 +32,24 @@ export class CartComponent implements OnInit {
   constructor( private cartService: CartService ) {}
 
   ngOnInit() : void {
-    this.dataSource = this.cart.items;    // Inicializa los datos a desplegar en la tabla en el FrontEnd
+    // Nos subscribimos al servicio para obtener la data que requerimos desplegar
+    this.cartService.cart.subscribe( ( cart: Cart ) => {
+      this.cart = cart;
+      this.dataSource = this.cart.items;    // Inicializa los datos a desplegar en la tabla en el FrontEnd
+    });
   }
 
   // Itera cada uno de los items de producto para calcular el valor total de los productos en el carrito usando el service
   getTotal( items: Array<CartItem> ) : number {
     return this.cartService.getTotal( items );
+  }
+
+  onClearCart() : void {
+    this.cartService.clearCart();
+  }
+
+  onRemoveFromCart( item: CartItem ) : void {
+    this.cartService.removeFromCart( item );
   }
 
 }

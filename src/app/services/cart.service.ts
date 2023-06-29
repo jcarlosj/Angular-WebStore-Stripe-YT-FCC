@@ -53,5 +53,18 @@ export class CartService {
     });
   }
 
+  // Itera cada uno de los items de producto dentro del estado del componente y elimina el item solicitado
+  removeFromCart( item: CartItem ) : void {
+    // TODO: Elimina del carrito un producto, sin importar la cantidad solicitada del mismo ¿Debería restar la cantidad del producto hasta llegar a cero y eliminarlo completamente del carrito?
+    const filteredItems = this.cart.value.items.filter( ( _item: CartItem ) => {
+      return _item.id !== item.id;      // Filtramos todos los items que no tengan el id igual
+    });
+
+    this.cart.next({ items: filteredItems });   // Actualiza el estado
+
+    this._snackbar.open( '1 item removed from cart', 'Ok', {
+      duration: 3000
+    });
+  }
 
 }
