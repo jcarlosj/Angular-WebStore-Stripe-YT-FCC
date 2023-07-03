@@ -23,9 +23,13 @@
       [cols]="columnsToShow"
       [rowHeight]="rowHeight"
     >
-      <mat-grid-tile class="grid-tile">
+      <mat-grid-tile
+        class="grid-tile"
+        *ngFor="let product of products"
+      >
         <!-- (addToCart)="onAddToCart( $event )" Establecemos la conexion entre el evento y el componente padre -->
         <app-product-box
+          [product] = "product"
           (addToCart)="onAddToCart( $event )"
           class="product-box"
           [fullWidthMode]="columnsToShow === 1"

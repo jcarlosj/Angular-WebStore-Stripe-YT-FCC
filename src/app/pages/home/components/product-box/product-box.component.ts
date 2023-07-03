@@ -9,15 +9,7 @@ import { Product } from 'src/app/models/product.model';
 export class ProductBoxComponent {
   @Input() fullWidthMode = false;
 
-  product: Product | undefined = {
-    id: 1,
-    title: 'snikers',
-    price: 150,
-    category: 'shoes',
-    description: 'Description of product',
-    image: 'https://placehold.co/150x200'
-  };
-
+  @Input() product: Product | undefined;
   @Output() addToCart = new EventEmitter();     // Creamos un evento llamado 'addToCard' al componente padre
 
   onAddToCart() : void {

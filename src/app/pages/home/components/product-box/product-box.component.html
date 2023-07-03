@@ -1,4 +1,7 @@
-<mat-card [ngClass]="{ 'card card__full-width': ! fullWidthMode }">
+<mat-card
+  *ngIf="product"
+  [ngClass]="{ 'card card__full-width': ! fullWidthMode }"
+>
 
   <div
     class="card__content"
@@ -11,8 +14,8 @@
         'card__image--full-width': ! fullWidthMode,
         'card__image--non-full-width': fullWidthMode,
       }"
-      src="https://placehold.co/150x200"
-      alt="Photo: 150x200"
+      [src]="product.image"
+      [alt]="product.title"
     >
 
     <div
@@ -22,12 +25,12 @@
       <div class="card__header-content">
 
         <mat-card-header class="card__header">
-          <mat-card-title>Shoes</mat-card-title>
-          <mat-card-subtitle class="cart__sub-title">Snikers</mat-card-subtitle>
+          <mat-card-title>{{ product.category }}</mat-card-title>
+          <mat-card-subtitle class="cart__sub-title">{{ product.title }}</mat-card-subtitle>
         </mat-card-header>
 
         <mat-card-content>
-          <p *ngIf="fullWidthMode">Description product</p>
+          <p *ngIf="fullWidthMode">{{ product.description }}</p>
           <mat-divider></mat-divider>
         </mat-card-content>
 
@@ -36,7 +39,7 @@
       <div class="card__actions-footer">
 
         <mat-card-actions class="card__actions">
-          <span mat-button class="product-price">{{ '250' | currency }}</span>
+          <span mat-button class="product-price">{{ product.price| currency }}</span>
           <button mat-button
             class="card__button"
             (click)="onAddToCart()"
