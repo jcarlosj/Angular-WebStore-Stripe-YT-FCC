@@ -26,6 +26,7 @@ import { ProductBoxComponent } from './pages/home/components/product-box/product
 import { CartComponent } from './pages/cart/cart.component';
 
 import { CartService } from './services/cart.service';
+import { StoreService } from './services/store.service';
 
 
 @NgModule({
@@ -56,7 +57,8 @@ import { CartService } from './services/cart.service';
     MatSnackBarModule
   ],
   providers: [
-    CartService
+    CartService,
+    StoreService
   ],
   bootstrap: [AppComponent]
 })
