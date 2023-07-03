@@ -72,4 +72,14 @@ export class HomeComponent implements OnInit, OnDestroy {
       quantity: 1
     });
   }
+
+  onOrderChange( newOrder: string ) : void {
+    this.sort = newOrder;
+    this.getProducts();
+  }
+
+  onItemsShowedChange( newCount: Number ) : void {
+    this.count = newCount.toString();
+    this.getProducts();
+  }
 }

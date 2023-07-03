@@ -16,6 +16,8 @@
   >
     <app-products-header
       (columnsToShow)="onColumnsToShow( $event )"
+      (orderChange)="onOrderChange( $event )"
+      (itemsShowedChange)="onItemsShowedChange( $event )"
     ></app-products-header>
     <p>{{ 'Columns to show: ' + columnsToShow }}</p>
     <mat-grid-list
