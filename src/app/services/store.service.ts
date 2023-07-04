@@ -20,4 +20,12 @@ export class StoreService {
     );
   }
 
+  getAllCategories() : Observable<Array<string>> {
+
+    // Establecemos una peticion HTTP de tipo GET para obtener todas las categorias como un Observable
+    return this.httpClient.get<Array<string>>(
+      `${ STORE_BASE_URL }/products/categories`
+    );
+  }
+
 }
