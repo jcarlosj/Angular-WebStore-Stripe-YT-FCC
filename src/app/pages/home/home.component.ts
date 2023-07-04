@@ -47,7 +47,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   getProducts() {
     // Creamos una subscripcion al Observable devuelto por el Service. Obtenermos los datos de dicho servicio.
     this.productsSubscription = this.storeService
-      .getAllProducts( this.count, this.sort )
+      .getAllProducts( this.count, this.sort, this.showCategory )
         .subscribe( _products => {
           this.products = _products;
         });
@@ -60,6 +60,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   onShowCategory( newCategory: string ) : void {
     this.showCategory = newCategory;
+    this.getProducts();
   }
 
   onAddToCart( product: Product ) : void {

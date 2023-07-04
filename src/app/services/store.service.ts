@@ -12,11 +12,11 @@ export class StoreService {
 
   constructor( private httpClient: HttpClient ) {}
 
-  getAllProducts( limit: string = '12', sort: string = 'desc' ) : Observable<Array<Product>> {
+  getAllProducts( limit: string = '12', sort: string = 'desc', category?: string ) : Observable<Array<Product>> {
 
     // Establecemos una peticion HTTP de tipo GET para obtener todos los productos como un Observable
     return this.httpClient.get<Array<Product>>(
-      `${ STORE_BASE_URL }/products?sort=${ sort }&limit=${ limit }`
+      `${ STORE_BASE_URL }/products${ category ? '/category/' + category : '' }?sort=${ sort }&limit=${ limit }`
     );
   }
 
